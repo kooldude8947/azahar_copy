@@ -20,10 +20,6 @@ jobs:
         include:
         - target: msvc
           os: windows-latest
-        - target: msys2
-          os: windows-latest
-        - target: mxe
-          os: ubuntu-latest
           container:
             image: opensauce04/azahar-build-environment:latest
             options: -u 1001
@@ -40,7 +36,7 @@ jobs:
       OS: windows
       TARGET: ${{ matrix.target }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           submodules: recursive
       - name: Set up cache
