@@ -20,11 +20,7 @@ jobs:
         include:
         - target: msvc
           os: windows-latest
-          container:
-            image: opensauce04/azahar-build-environment:latest
-            options: -u 1001
     runs-on: ${{ matrix.os }}
-    container: ${{ matrix.container }}
     defaults:
       run:
         shell: ${{ (matrix.target == 'msys2' && 'msys2') || 'bash' }} {0}
