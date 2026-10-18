@@ -10,7 +10,11 @@ cmake .. -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_C_COMPILER_LAUNCHER=ccache \
     -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
-    -DENABLE_DISCORD_RPC=ON \
+    -DENABLE_DISCORD_RPC=OFF \
+	-DENABLE_WEB_SERVICE=OFF \
+	-DENABLE_GDBSTUB=OFF \
+	-DUSE_SYSTEM_QT=ON \
+	-DQt5_DIR=${{ github.workspace }}\Qt-Win-Static\Qt\Qt-5.15.19\lib\cmake\Qt5 \
 	"${EXTRA_CMAKE_FLAGS[@]}"
 ninja
 ninja bundle
