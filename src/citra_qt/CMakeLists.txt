@@ -230,7 +230,7 @@ if (ENABLE_QT_TRANSLATION)
     if (EXISTS "${QT_TARGET_PATH}/translations")
         set(BASE_QT_LANGUAGES "${QT_TARGET_PATH}/translations" CACHE PATH "Path to Qt base translations")
     else()
-        set(BASE_QT_LANGUAGES "${QT_TARGET_PATH}/share/qt6/translations" CACHE PATH "Path to Qt base translations")
+        set(BASE_QT_LANGUAGES "${QT_TARGET_PATH}/share/qt5/translations" CACHE PATH "Path to Qt base translations")
     endif()
     set(CITRA_QT_LANGUAGES "${PROJECT_SOURCE_DIR}/dist/languages" CACHE PATH "Path to Citra translations")
     option(GENERATE_QT_TRANSLATION "Generate en.ts as the translation source file" OFF)
@@ -286,7 +286,7 @@ target_sources(citra_qt
 )
 
 if (WIN32)
-    target_link_libraries(citra_qt PRIVATE Qt6::EntryPointImplementation)
+    target_link_libraries(citra_qt PRIVATE Qt5::WinMain)
 endif()
 
 if(ENABLE_SDL2)
@@ -297,7 +297,7 @@ endif()
 create_target_directory_groups(citra_qt)
 
 target_link_libraries(citra_qt PRIVATE audio_core citra_common citra_core input_common network video_core)
-target_link_libraries(citra_qt PRIVATE Boost::boost nihstro-headers Qt6::Widgets Qt6::Multimedia Qt6::Concurrent)
+target_link_libraries(citra_qt PRIVATE Boost::boost nihstro-headers Qt5::Widgets Qt5::Multimedia Qt5::Concurrent)
 target_link_libraries(citra_qt PRIVATE ${PLATFORM_LIBRARIES} Threads::Threads)
 
 if (MINGW)
