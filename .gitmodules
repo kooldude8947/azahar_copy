@@ -34,6 +34,7 @@
 [submodule "cubeb"]
 	path = externals/cubeb
 	url = https://github.com/mozilla/cubeb
+	branch = devchg_docs
 [submodule "discord-rpc"]
 	path = externals/discord-rpc
 	url = https://github.com/azahar-emu/discord-rpc.git
